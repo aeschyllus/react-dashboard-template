@@ -6,10 +6,7 @@ type RequestType = (
   payload?: any
 ) => Promise<AxiosResponse<any>>;
 
-const apiUrl: string =
-  process.env.NODE_ENV === "development"
-    ? "https://jsonplaceholder.typicode.com"
-    : "http://your-url.com";
+const apiUrl: string = "https://jsonplaceholder.typicode.com";
 
 const request: RequestType = (endpoint, method = "GET", payload = null) => {
   const config = { headers: { Authorization: "Bearer token-here" } };
