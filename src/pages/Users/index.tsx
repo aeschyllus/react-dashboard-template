@@ -36,6 +36,7 @@ const columns: GridColDef[] = [
 const Users = () => {
   const dispatch = useDispatch();
   const users = useSelector((state: RootState) => state.user.users);
+  const loading = useSelector((state: RootState) => state.user.isLoading);
 
   useEffect(() => {
     dispatch(getUsers());
@@ -54,6 +55,7 @@ const Users = () => {
         rowsPerPageOptions={[5]}
         checkboxSelection
         disableSelectionOnClick
+        loading={loading}
       />
     </Box>
   );
